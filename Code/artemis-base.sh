@@ -25,7 +25,7 @@ menuPrincipal () {
     echo -e "\033[0m" # Remettre blanc
     echo -e "\t [a] Jouer"
     echo -e "\t [s] Score"
-    echo -e "\t [q] Quitter"
+    echo -e "\t [q] Quitter\n"
 }
 
 # Cette fonction prend 1 paramètre (etat de la dernière partie - victoire ou défaite)
@@ -62,13 +62,13 @@ jouer () {
     # 3- Elle doit demander à l'usager la force à appliquer (entre 15 et 18)
     read -p "Quel force souhaitez-vous appliquer ?" force
     # 4- Elle doit avoir une boucle allant de 0 à la force à appliquer.
-    afficherEtatJeu $force
+    afficherEtatJeu $force $rnd
     #    Celle-ci doit afficher l'état du jeu, incrémenter la position de la flèche et
     #    faire une petite attente de 100msec
     # 5- Elle doit appeler la fonction de sauvegarde de la partie
+    sauvegarderPartie
     # 6- Elle doit appeler la fonction d'affichage du menu de fin
-
-    echo "Logique du jeu à venir"
+    menuFinPartie
 }
 
 # Tant que l'utilisateur ne veut pas quitter, afficher le menu principal et
@@ -87,26 +87,3 @@ until [[ $choix = q ]]      # Quitter
         #ajout commentaire
     fi
 done
-
-# LA BOMBE
-
-faireTrait(){
-    for (( i=0;i<$1;i++ ))
-    do
-        echo -n "."
-    done
-}
-
-destructionTotale(){
-    for (( i=0;i< 6;i++ ))
-    do
-        # clear
-        faireTrait $i
-        if [[ $i -eq 5 ]]
-        then 
-            echo -ne "       deleted"
-            echo
-        fi
-        sleep 0.2
-    done 
-}
