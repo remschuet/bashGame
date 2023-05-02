@@ -65,13 +65,18 @@ jouer () {
     # 3- Elle doit demander à l'usager la force à appliquer (entre 15 et 18)
     read -p "Quel force souhaitez-vous appliquer ?" force
     # 4- Elle doit avoir une boucle allant de 0 à la force à appliquer.
-    afficherEtatJeu $force
+    for (( i=0;i<$force;i++ ))
+    do
+        afficherEtatJeu $rnd $i
+        Sleep 0.1
+    done
     #    Celle-ci doit afficher l'état du jeu, incrémenter la position de la flèche et
     #    faire une petite attente de 100msec
     # 5- Elle doit appeler la fonction de sauvegarde de la partie
+    sauvegarderPartie
     # 6- Elle doit appeler la fonction d'affichage du menu de fin
+    menuFinPartie
 
-    echo "Logique du jeu à venir"
 }
 
 # Tant que l'utilisateur ne veut pas quitter, afficher le menu principal et
