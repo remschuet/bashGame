@@ -15,16 +15,17 @@ sauvegarderPartie () {
         echo -n "#"
         sleep 0.1
     done
-    touch ./Code/score.txt
 
+    touch ./score.txt
+
+    today=`date +%Y-%m-%d`
     if [[ $1 -eq 1 ]]
     then
-        echo "Défaite" >> ./Code/score.txt
+        echo "[$today] Défaite" >> ./score.txt
     elif [[ $1 -eq 0 ]]
     then 
-        echo "Victoire" >> ./Code/score.txt
+         echo "[$today] Victoire" >> ./score.txt
     fi
-
 }
 
 # Cette fonction permet d'afficher l'état des dernières parties jouées (ex: score.txt)
@@ -103,14 +104,15 @@ jouer () {
     #    Celle-ci doit afficher l'état du jeu, incrémenter la position de la flèche et
     #    faire une petite attente de 100msec
     # 5- Elle doit appeler la fonction de sauvegarde de la partie
-    sauvegarderPartie
     # 6- Elle doit appeler la fonction d'affichage du menu de fin
     if [[ $rnd -eq $force ]]
     then
         menuFinPartie 0
+        sauvegarderPartie 0
     elif [[ $rnd != $force ]]
     then
         menuFinPartie 1
+        sauvegarderPartie 1
     fi
 }
 
