@@ -8,7 +8,7 @@
 sauvegarderPartie () {
 	echo -e "033[32m" # Mettre la couleur du texte en vert
     echo "Sauvegarde de la partie à venir"
-    echo -e "033[0m" # Remettre blanc
+    echo -e "033[0m" # Remettre blanc ALLO
 }
 
 # Cette fonction permet d'afficher l'état des dernières parties jouées (ex: score.txt)
