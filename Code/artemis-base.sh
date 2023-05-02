@@ -38,7 +38,8 @@ menuFinPartie () {
 # Cette fonction permet d'afficher l'état du jeu (l'arc, la flèche et le monstre)
 # Elle prend 2 paramètres (la position de la flèche et celle du monstre)
 afficherEtatJeu() {
-    for (( i=0;i-lt20;i++ ))
+    clear
+    for i in {0..20}
     do
         if [[ $i -eq 0 ]]
         then
@@ -53,8 +54,6 @@ afficherEtatJeu() {
             echo -n " "
         fi
     done
-
-
 }
 
 # Cette fonction permet de jouer une partie
@@ -67,9 +66,9 @@ jouer () {
     echo
     read -p "Quel force souhaitez-vous appliquer ?" force
     # 4- Elle doit avoir une boucle allant de 0 à la force à appliquer.
-    for (( i=0;i<=$force;i++ ))
+    for (( j=0;j<=$force;j++ ))
     do
-        afficherEtatJeu $rnd $i
+        afficherEtatJeu $rnd $j
         sleep 0.1
     done
 
