@@ -38,18 +38,23 @@ menuFinPartie () {
 # Cette fonction permet d'afficher l'état du jeu (l'arc, la flèche et le monstre)
 # Elle prend 2 paramètres (la position de la flèche et celle du monstre)
 afficherEtatJeu() {
-    for (( i=0;i-le20;i++ ))
+    for (( i=0;i-lt20;i++ ))
     do
-        if [[ i==$2 ]]
+        if [[ $i -eq 0 ]]
+        then
+            echo -n "D"
+        elif [[ $i -eq $2 ]]
         then
             echo -n "->"
-        elif [[ i==$1 ]]
+        elif [[ $i -eq $1 ]]
         then
-            echo -n "M"
+            echo -n  "M"
         else
-        echo -n " "
+            echo -n " "
         fi
     done
+
+
 }
 
 # Cette fonction permet de jouer une partie
@@ -57,15 +62,18 @@ jouer () {
     # 1- Elle doit calculer la position du monstre, entre 15 et 18 : rnd=$(( $RANDOM % 3 + 15 ))
     rnd=$(( $RANDOM % 3 +15))
     # 2- Elle doit afficher l'état initial du jeu (avec la fonction afficherEtatJeu)
-    afficherEtatJeu
+    afficherEtatJeu 0 0
     # 3- Elle doit demander à l'usager la force à appliquer (entre 15 et 18)
+    echo
     read -p "Quel force souhaitez-vous appliquer ?" force
     # 4- Elle doit avoir une boucle allant de 0 à la force à appliquer.
-    for (( i=0;i<$force;i++ ))
+    for (( i=0;i<=$force;i++ ))
     do
         afficherEtatJeu $rnd $i
-        Sleep 0.1
+        sleep 0.1
     done
+
+    sleep 5
     #    Celle-ci doit afficher l'état du jeu, incrémenter la position de la flèche et
     #    faire une petite attente de 100msec
     # 5- Elle doit appeler la fonction de sauvegarde de la partie
