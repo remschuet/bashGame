@@ -6,14 +6,25 @@
 # [2023-05-01 15:26:21] - Défaite
 # [2023-05-02 16:16:33] - Victoire
 sauvegarderPartie () {
-	echo -e "\033[32m" # Mettre la couleur du texte en vert
-    echo -e "Sauvegarde de la partie en cours"
+	clear
+    echo -e "\033[32m" # Mettre la couleur du texte en vert
+    echo -en "Sauvegarde de la partie en cours"
     echo -e "\033[0m" # Remettre blanc
-    for (( i=0;i<10;i++ ))
+    for (( i=0;i<30;i++ ))
     do
         echo -n "#"
-        sleep 0.2
+        sleep 0.1
     done
+    touch ./Code/score.txt
+
+    if [[ $1 -eq 1 ]]
+    then
+        echo "Défaite" >> ./Code/score.txt
+    elif [[ $1 -eq 0 ]]
+    then 
+        echo "Victoire" >> ./Code/score.txt
+    fi
+
 }
 
 # Cette fonction permet d'afficher l'état des dernières parties jouées (ex: score.txt)
@@ -88,16 +99,18 @@ jouer () {
     done
     #    Celle-ci doit afficher l'état du jeu, incrémenter la position de la flèche et
     #    faire une petite attente de 100msec
-    # 5- Elle doit appeler la fonction de sauvegarde de la partie
-    sauvegarderPartie
-    # 6- Elle doit appeler la fonction d'affichage du menu de fin
+    # 5- Elle doit appeler la fonction d'affichage du menu de fin
     if [[ $rnd -eq $force ]]
     then
         menuFinPartie 0
+        sauvegarderPartie 0
     elif [[ $rnd != $force ]]
     then
         menuFinPartie 1
+        sauvegarderPartie 1
     fi
+    # 6- Elle doit appeler la fonction de sauvegarde de la partie
+    
 }
 
 # Tant que l'utilisateur ne veut pas quitter, afficher le menu principal et
