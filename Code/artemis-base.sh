@@ -21,8 +21,12 @@ afficherScore () {
 # Cette fonction affiche le menu principal ayant les options pour jouer, afficher les scores et pour quitter
 menuPrincipal () {
     echo -e "033[33m" # Mettre la couleur du texte en jaune
-    echo "Affichage du menu principal à venir"
+    echo ">>> ------- Artemis ---------->"
     echo -e "033[0m" # Remettre blanc
+    echo -e "\t\t [a] Jouer"
+    echo -e "\t\t [s] Score"
+    echo -e "\t\t [q] Quitter"
+
 }
 
 # Cette fonction prend 1 paramètre (etat de la dernière partie - victoire ou défaite)
