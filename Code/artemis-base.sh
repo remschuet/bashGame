@@ -51,7 +51,7 @@ afficherEtatJeu() {
         then
             echo -n  "M"
         else
-            echo -n " "
+        echo -n " "
         fi
     done
 }
