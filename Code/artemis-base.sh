@@ -46,7 +46,7 @@ afficherEtatJeu() {
             echo -n "D"
         elif [[ $i -eq $2 ]]
         then
-            echo -n "->"
+            echo -n ">"
         elif [[ $i -eq $1 ]]
         then
             echo -n  "M"
@@ -61,7 +61,7 @@ jouer () {
     # 1- Elle doit calculer la position du monstre, entre 15 et 18 : rnd=$(( $RANDOM % 3 + 15 ))
     rnd=$(( $RANDOM % 3 +15))
     # 2- Elle doit afficher l'état initial du jeu (avec la fonction afficherEtatJeu)
-    afficherEtatJeu 0 0
+    afficherEtatJeu $rnd 0
     # 3- Elle doit demander à l'usager la force à appliquer (entre 15 et 18)
     echo
     read -p "Quel force souhaitez-vous appliquer ?" force
