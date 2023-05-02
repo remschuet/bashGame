@@ -38,7 +38,11 @@ menuFinPartie () {
         echo -n -e "       -----------------------    --\n";
         echo -n -e ">>>>>>>                       |_-' \n";
     else
-        echo -n " "
+        echo -n -e "┌∩┐(◣_◢)┌∩┐"
+        sleep 1
+        echo "    LOSER"
+
+        
     fi
     sleep 5
 }
@@ -54,10 +58,10 @@ afficherEtatJeu() {
             echo -n "D"
         elif [[ $i -eq $2 ]]
         then
-            echo -n ">"
+            echo -n "✈"
         elif [[ $i -eq $1 ]]
         then
-            echo -n  "M"
+            echo -n  "👾"
         else
         echo -n " "
         fi
