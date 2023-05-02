@@ -38,6 +38,12 @@ menuFinPartie () {
 # Cette fonction permet d'afficher l'état du jeu (l'arc, la flèche et le monstre)
 # Elle prend 2 paramètres (la position de la flèche et celle du monstre)
 afficherEtatJeu() {
+    for (( i=0;i<$1;i++ ))
+    do
+        echo -n " "
+    done
+    echo -n "->"
+
     # Algorithme général...
 
     # Pour i allant de 0 à 18 (inclusivement)
