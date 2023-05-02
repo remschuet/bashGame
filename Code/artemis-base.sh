@@ -14,6 +14,7 @@ sauvegarderPartie () {
 
     today=`date +%Y-%m-%d`
     heure=`date +%H:%M:%S`
+
     if [[ $1 -eq 1 ]]
     then
         echo "[$today $heure] Défaite" >> ./score.txt
@@ -97,6 +98,7 @@ jouer () {
     echo
     echo -e "\nLe monstre est en vue!"
     read -p "Quel force souhaitez-vous appliquer ? " force
+
     # 4- Elle doit avoir une boucle allant de 0 à la force à appliquer.
     for (( j=0;j<=$force;j++ ))
     do
@@ -106,6 +108,7 @@ jouer () {
     done
     #    Celle-ci doit afficher l'état du jeu, incrémenter la position de la flèche et
     #    faire une petite attente de 100msec
+
     # 5- Elle doit appeler la fonction de sauvegarde de la partie
     # 6- Elle doit appeler la fonction d'affichage du menu de fin
     if [[ $rnd -eq $force ]]
