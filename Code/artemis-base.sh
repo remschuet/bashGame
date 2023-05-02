@@ -74,5 +74,6 @@ until [[ $choix = q ]]      # Quitter
     elif [[ $choix = s ]]   # Score
     then
         afficherScore
+        #ajout commentaire
     fi
 done
