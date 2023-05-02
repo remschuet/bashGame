@@ -6,16 +6,16 @@
 # [2023-05-01 15:26:21] - Défaite
 # [2023-05-02 16:16:33] - Victoire
 sauvegarderPartie () {
-	echo -e "033[32m" # Mettre la couleur du texte en vert
+	echo -e "\033[32m" # Mettre la couleur du texte en vert
     echo "Sauvegarde de la partie à venir"
-    echo -e "033[0m" # Remettre blanc ALLO
+    echo -e "\033[0m" # Remettre blanc ALLO
 }
 
 # Cette fonction permet d'afficher l'état des dernières parties jouées (ex: score.txt)
 afficherScore () {
-	echo -e "033[34m" # Mettre la couleur du texte en blue
+	echo -e "\033[34m" # Mettre la couleur du texte en blue
     echo "Afficher des dernières parties à venir"
-    echo -e "033[0m" # Remettre blanc
+    echo -e "\033[0m" # Remettre blanc
 }
 
 # Cette fonction affiche le menu principal ayant les options pour jouer, afficher les scores et pour quitter
