@@ -50,12 +50,13 @@ afficherEtatJeu() {
 # Cette fonction permet de jouer une partie
 jouer () {
     # 1- Elle doit calculer la position du monstre, entre 15 et 18 : rnd=$(( $RANDOM % 3 + 15 ))
-    rnd=$(( $RANDOM % 3 +15))
+    rnd=$(( $RANDOM % 3 +15 ))
     # 2- Elle doit afficher l'état initial du jeu (avec la fonction afficherEtatJeu)
-    afficherEtatJeu
+    afficherEtatJeu 0
     # 3- Elle doit demander à l'usager la force à appliquer (entre 15 et 18)
-    read -p "Quel force souhaitez-vous appliquer ?"
+    read -p "Quel force souhaitez-vous appliquer ? " force
     # 4- Elle doit avoir une boucle allant de 0 à la force à appliquer.
+    afficherEtatJeu $force
     #    Celle-ci doit afficher l'état du jeu, incrémenter la position de la flèche et
     #    faire une petite attente de 100msec
     # 5- Elle doit appeler la fonction de sauvegarde de la partie
