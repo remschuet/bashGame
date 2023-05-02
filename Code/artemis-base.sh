@@ -40,13 +40,18 @@ menuFinPartie () {
     clear
     if [[ $1 -eq 0 ]]
     then
+        echo -e "\033[32m" # rouge
         echo -n -e ">>>>>>>                       |-._\n";
         echo -n -e "       -----------------------    --\n";
         echo -n -e ">>>>>>>                       |_-' \n";
         echo -e "\n\n\tVous avez gagne !"
+        echo -e "\033[0m" # Remettre blanc
+
     else
+        echo -e "\033[31m" # rouge
         echo -n -e "╭∩╮(Ο_Ο)╭∩╮"
         echo -e "\n\nVous avez perdu ..."
+        echo -e "\033[0m" # Remettre blanc
     fi
     echo -e "\nAppuyez sur ENTER pour continuer ..."
     read bob
