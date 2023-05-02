@@ -32,7 +32,15 @@ menuPrincipal () {
 # Faire afficher un message/ASCII art en fonction de l'état de la partie
 # Exemple : Vous avez perdu! ou Bravo, vous avez gagné!
 menuFinPartie () {
-    echo "Affichage de la fin de partie à venir"
+    if [[ $1 -eq 0 ]]
+    then
+        echo -n -e ">>>>>>>                       |-._\n";
+        echo -n -e "       -----------------------    --\n";
+        echo -n -e ">>>>>>>                       |_-' \n";
+    else
+        echo -n " "
+    fi
+    sleep 5
 }
 
 # Cette fonction permet d'afficher l'état du jeu (l'arc, la flèche et le monstre)
