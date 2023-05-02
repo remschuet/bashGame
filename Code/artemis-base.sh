@@ -42,10 +42,13 @@ menuFinPartie () {
         echo -n -e ">>>>>>>                       |-._\n";
         echo -n -e "       -----------------------    --\n";
         echo -n -e ">>>>>>>                       |_-' \n";
+        echo -e "\n\n\tVous avez gagne !"
     else
         echo -n -e "╭∩╮(Ο_Ο)╭∩╮"
+        echo -e "\n\nVous avez perdu ..."
     fi
-    sleep 5
+    echo -e "\nAppuyez sur ENTER pour continuer ..."
+    read bob
 }
 
 # Cette fonction permet d'afficher l'état du jeu (l'arc, la flèche et le monstre)
