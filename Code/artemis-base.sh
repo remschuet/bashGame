@@ -43,7 +43,7 @@ menuFinPartie () {
         echo -n -e "       -----------------------    --\n";
         echo -n -e ">>>>>>>                       |_-' \n";
     else
-        echo -n " "
+        echo -n -e "╭∩╮(Ο_Ο)╭∩╮"
     fi
     sleep 5
 }
