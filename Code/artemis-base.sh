@@ -7,9 +7,10 @@
 # [2023-05-02 16:16:33] - Victoire
 sauvegarderPartie () {
 	clear
-    echo -e "\033[32m" # Mettre la couleur du texte en vert
-    echo -en "Sauvegarde de la partie en cours"
+    echo -en "\033[32m" # Mettre la couleur du texte en vert
+    echo -e "Sauvegarde de la partie en cours"
     echo -e "\033[0m" # Remettre blanc
+    
     for (( i=0;i<30;i++ ))
     do
         echo -n "#"
@@ -31,8 +32,10 @@ sauvegarderPartie () {
 # Cette fonction permet d'afficher l'état des dernières parties jouées (ex: score.txt)
 afficherScore () {
 	echo -e "\033[34m" # Mettre la couleur du texte en blue
-    echo "Afficher des dernières parties à venir"
+    cat score.txt
     echo -e "\033[0m" # Remettre blanc
+    echo -e "\nAppuyez sur ENTER pour continuer ..."
+    read bob
 }
 
 # Cette fonction affiche le menu principal ayant les options pour jouer, afficher les scores et pour quitter
@@ -52,13 +55,17 @@ menuFinPartie () {
     clear
     if [[ $1 -eq 0 ]]
     then
+        echo -e "\033[32m"
         echo -n -e ">>>>>>>                       |-._\n";
         echo -n -e "       -----------------------    --\n";
         echo -n -e ">>>>>>>                       |_-' \n";
         echo -e "\n\n\tVous avez gagne !"
+        echo -e "\033[0m"
     else
+    echo -e "\033[31m"
         echo -n -e "╭∩╮(Ο_Ο)╭∩╮"
         echo -e "\n\nVous avez perdu ..."
+        echo -e "\033[0m"
     fi
     echo -e "\nAppuyez sur ENTER pour continuer ..."
     read bob
@@ -122,6 +129,7 @@ until [[ $choix = q ]]      # Quitter
  do
     clear
     menuPrincipal
+    echo
     read -p "Choix : " choix
     echo
 
