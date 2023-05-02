@@ -6,27 +6,23 @@
 # [2023-05-01 15:26:21] - Défaite
 # [2023-05-02 16:16:33] - Victoire
 sauvegarderPartie () {
-	clear
     echo -en "\033[32m" # Mettre la couleur du texte en vert
     echo -e "Sauvegarde de la partie en cours"
     echo -e "\033[0m" # Remettre blanc
-    
-    for (( i=0;i<30;i++ ))
-    do
-        echo -n "#"
-        sleep 0.1
-    done
 
     touch ./score.txt
 
     today=`date +%Y-%m-%d`
+    heure=`date +%H:%M:%S`
     if [[ $1 -eq 1 ]]
     then
-        echo "[$today] Défaite" >> ./score.txt
+        echo "[$today $heure] Défaite" >> ./score.txt
     elif [[ $1 -eq 0 ]]
     then 
-         echo "[$today] Victoire" >> ./score.txt
+         echo "[$today $heure] Victoire" >> ./score.txt
     fi
+
+    sleep 1
 }
 
 # Cette fonction permet d'afficher l'état des dernières parties jouées (ex: score.txt)
