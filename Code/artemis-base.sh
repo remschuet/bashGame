@@ -38,7 +38,6 @@ menuFinPartie () {
 # Cette fonction permet d'afficher l'état du jeu (l'arc, la flèche et le monstre)
 # Elle prend 2 paramètres (la position de la flèche et celle du monstre)
 afficherEtatJeu() {
-    clear
     for i in {0..20}
     do
         if [[ $i -eq 0 ]]
@@ -64,30 +63,32 @@ jouer () {
     afficherEtatJeu $rnd 0
     # 3- Elle doit demander à l'usager la force à appliquer (entre 15 et 18)
     echo
-    read -p "Quel force souhaitez-vous appliquer ?" force
+    echo -e "\nLe monstre est en vue!"
+    read -p "Quel force souhaitez-vous appliquer ? " force
     # 4- Elle doit avoir une boucle allant de 0 à la force à appliquer.
     for (( j=0;j<=$force;j++ ))
     do
+        clear
         afficherEtatJeu $rnd $j
         sleep 0.1
     done
 
-    sleep 5
     #    Celle-ci doit afficher l'état du jeu, incrémenter la position de la flèche et
     #    faire une petite attente de 100msec
     # 5- Elle doit appeler la fonction de sauvegarde de la partie
     sauvegarderPartie
     # 6- Elle doit appeler la fonction d'affichage du menu de fin
     menuFinPartie
-
 }
 
 # Tant que l'utilisateur ne veut pas quitter, afficher le menu principal et
 choix=
 until [[ $choix = q ]]      # Quitter
  do
+    clear
     menuPrincipal
     read -p "Choix : " choix
+    echo
 
     if [[ $choix = a ]]     # Jouer
     then
