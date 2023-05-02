@@ -59,4 +59,17 @@ jouer () {
 }
 
 # Tant que l'utilisateur ne veut pas quitter, afficher le menu principal et
-# demander l'option voulue. Appeler la bonne fonction en conséquence
+choix=
+until [[ $choix = q ]]      # Quitter
+ do
+    menuPrincipal
+    read -p "Choix : " choix
+
+    if [[ $choix = a ]]     # Jouer
+    then
+       jouer 
+    elif [[ $choix = s ]]   # Score
+    then
+        afficherScore
+    fi
+done
