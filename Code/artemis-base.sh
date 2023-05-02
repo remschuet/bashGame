@@ -8,12 +8,12 @@
 sauvegarderPartie () {
 	echo -e "\033[32m" # Mettre la couleur du texte en vert
     echo -e "Sauvegarde de la partie en cours"
+    echo -e "\033[0m" # Remettre blanc
     for (( i=0;i<10;i++ ))
     do
         echo -n "#"
         sleep 0.2
     done
-    echo -e "\033[0m" # Remettre blanc
 }
 
 # Cette fonction permet d'afficher l'état des dernières parties jouées (ex: score.txt)
@@ -37,6 +37,7 @@ menuPrincipal () {
 # Faire afficher un message/ASCII art en fonction de l'état de la partie
 # Exemple : Vous avez perdu! ou Bravo, vous avez gagné!
 menuFinPartie () {
+    clear
     if [[ $1 -eq 0 ]]
     then
         echo -n -e ">>>>>>>                       |-._\n";
